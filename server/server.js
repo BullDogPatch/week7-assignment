@@ -22,5 +22,14 @@ app.get('/', (req, res) =>
   )
 );
 
+app.get('/comments', async (req, res) => {
+  try {
+    const { rows } = await db.query(`SELECT * FROM comments`);
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ message: 'Server is down :(' });
+  }
+});
+
 const PORT = 8080;
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
