@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -11,6 +12,10 @@ const HomePage = () => {
         music lovers, and dive deep into the world of sound. Join us, leave your
         mark, and find your next favorite band!
       </p>
+
+      <Link to='/post-comment' className='create-post-link'>
+        Create Post
+      </Link>
     </main>
   );
 };
