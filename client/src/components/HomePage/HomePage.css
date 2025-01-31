@@ -1,0 +1,12 @@
+.main {
+  margin: 60px 20px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.home-page-description {
+  margin: 20px auto;
+  padding: 40px;
+}
