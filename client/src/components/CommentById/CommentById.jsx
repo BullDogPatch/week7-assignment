@@ -43,8 +43,6 @@ const CommentById = ({ setComments }) => {
     } catch (error) {
       console.error('Error during delete request:', error);
     }
-
-    console.log(id);
   };
 
   return (

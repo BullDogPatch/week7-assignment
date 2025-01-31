@@ -14,7 +14,6 @@ function App() {
     const getComments = async () => {
       const response = await fetch('http://localhost:8080/comments');
       const data = await response.json();
-      console.log(data);
       setComments(data);
     };
     getComments();
