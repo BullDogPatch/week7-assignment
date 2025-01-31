@@ -1,33 +1,17 @@
-import { useEffect, useState } from 'react';
 import './App.css';
 import Comment from './components/Comments/Comment';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
+import Header from './components/Header/Header';
+import CommentsWrapper from './components/CommentsWrapper/CommentsWrapper';
 
 function App() {
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    const getComments = async () => {
-      const response = await fetch('http://localhost:8080/comments');
-      const data = await response.json();
-      console.log(data);
-      setComments(data);
-    };
-    getComments();
-  }, []);
-
   return (
     <>
-      <h1>BandReviews</h1>
-
-      {/* <ul>
-        {comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
-      </ul> */}
+      <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/comments' element={<CommentsWrapper />} />
       </Routes>
     </>
   );
