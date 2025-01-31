@@ -32,7 +32,10 @@ function App() {
           path='/post-comment'
           element={<PostForm setComments={setComments} />}
         />
-        <Route path='/comments/:id' element={<CommentById />} />
+        <Route
+          path='/comments/:id'
+          element={<CommentById setComments={setComments} />}
+        />
       </Routes>
     </>
   );
