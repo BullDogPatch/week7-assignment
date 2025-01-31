@@ -1,18 +1,14 @@
 import { Link } from 'react-router-dom';
+import './Comment.css';
 
 const Comment = ({ comment }) => {
   return (
-    <li>
-      <p>{comment.username}</p>
-      <p>{comment.band_name}</p>
-      <img
-        style={{ width: '200px', height: '200px' }}
-        src={comment.src}
-        alt=''
-      />
-      <p>{comment.description}</p>
-      <Link to={`/comments/${comment.id}`}>See More</Link>
-    </li>
+    <Link to={`/comments/${comment.id}`}>
+      <li className='comment'>
+        <p className='username'>{comment.username}</p>
+        <img src={comment.src} alt='' />
+      </li>
+    </Link>
   );
 };
 

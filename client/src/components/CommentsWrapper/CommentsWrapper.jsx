@@ -1,8 +1,9 @@
 import Comment from '../Comments/Comment';
+import './CommentsWrapper.css';
 
 const CommentsWrapper = ({ comments }) => {
   return (
-    <ul>
+    <ul className='comments-wrapper'>
       {comments?.map((comment) => (
         <Comment key={comment.id} comment={comment} />
       ))}
