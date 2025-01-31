@@ -1,9 +1,8 @@
-import './App.css';
-import Comment from './components/Comments/Comment';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import Header from './components/Header/Header';
 import CommentsWrapper from './components/CommentsWrapper/CommentsWrapper';
+import './App.css';
 
 function App() {
   return (
