@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <header className='header'>
       <h1>BandReviews</h1>
-      <Link to='/post-comment'>Post your experience</Link>
+      <Link to='/post-comment' className='create-post-link'>
+        Create Post
+      </Link>
     </header>
   );
 };

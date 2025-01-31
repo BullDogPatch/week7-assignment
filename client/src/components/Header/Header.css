@@ -12,6 +12,18 @@
   padding: 1.5rem 0.625rem;
 }
 
+.create-post-link {
+  padding: 15px;
+  border-radius: 30px;
+  background-color: rgb(19, 16, 16);
+  color: white;
+}
+
+.create-post-link:hover {
+  border: 1px solid red;
+  color: rgb(246, 236, 222);
+}
+
 @media (min-width: 450px) {
   .header {
     padding: 1rem 1rem;
