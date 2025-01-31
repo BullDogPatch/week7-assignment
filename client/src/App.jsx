@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Comment from './components/Comment';
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -19,7 +20,7 @@ function App() {
       <h1>Band Reviews</h1>
       <ul>
         {comments.map((comment) => (
-          <li key={comment.id}>{comment.description}</li>
+          <Comment key={comment.id} comment={comment} />
         ))}
       </ul>
     </>
