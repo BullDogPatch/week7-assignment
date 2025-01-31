@@ -72,6 +72,18 @@ const PostForm = ({ setComments }) => {
         onChange={handleChange}
       />
 
+      <label htmlFor='image-url'>Band Name:</label>
+
+      <input
+        value={formData.src}
+        type='text'
+        name='src'
+        id='image-url'
+        required
+        placeholder='image url'
+        onChange={handleChange}
+      />
+
       <label htmlFor='description'>Description:</label>
       <textarea
         value={formData.description}
