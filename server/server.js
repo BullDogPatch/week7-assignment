@@ -47,5 +47,19 @@ app.get('/comments/:id', async (req, res) => {
   }
 });
 
+app.post('/post-comment', async (req, res) => {
+  const { username, band_name, src, description, musical_rating } = req.body;
+  try {
+    const { rows } = await db.query(
+      `INSERT INTO comments (username, band_name, src, description, musical_rating ) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+      [username, band_name, src, description, musical_rating]
+    );
+    res.json(rows[0]);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Failed to post comment' });
+  }
+});
+
 const PORT = 8080;
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
