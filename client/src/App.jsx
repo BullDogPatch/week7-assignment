@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Comment from './components/Comment';
+import Comment from './components/Comments/Comment';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePage/HomePage';
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -17,12 +19,16 @@ function App() {
 
   return (
     <>
-      <h1>Band Reviews</h1>
-      <ul>
+      <h1>BandReviews</h1>
+
+      {/* <ul>
         {comments.map((comment) => (
           <Comment key={comment.id} comment={comment} />
         ))}
-      </ul>
+      </ul> */}
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+      </Routes>
     </>
   );
 }
