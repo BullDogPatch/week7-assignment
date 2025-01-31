@@ -6,10 +6,15 @@ import pg from 'pg';
 dotenv.config();
 
 const dbConnectionString = process.env.DATABASE_URL;
+console.log(process.env.DATABASE_URL);
 
 const db = new pg.Pool({
   connectionString: dbConnectionString,
 });
+
+db.connect()
+  .then(() => console.log('Connected to database successfully!'))
+  .catch((err) => console.error('Error connecting to the database:', err));
 
 const app = express();
 
