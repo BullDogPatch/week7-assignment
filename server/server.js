@@ -61,5 +61,17 @@ app.post('/post-comment', async (req, res) => {
   }
 });
 
+app.delete('/delete-comment/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await db.query(`DELETE FROM comments WHERE id = $1`, [id]);
+    if (result.rowCount > 0) {
+      res.status(200).json({ message: 'comment deleted' });
+    }
+  } catch (error) {
+    console.error('Error deleting comment:', error);
+  }
+});
+
 const PORT = 8080;
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
