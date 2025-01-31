@@ -1,9 +1,9 @@
-const formatDate = (date) =>
-  new Intl.DateTimeFormat('en-GB').format(new Date(date));
+import { Link } from 'react-router-dom';
 
 const Comment = ({ comment }) => {
   return (
     <li>
+      <p>{comment.username}</p>
       <p>{comment.band_name}</p>
       <img
         style={{ width: '200px', height: '200px' }}
@@ -11,8 +11,7 @@ const Comment = ({ comment }) => {
         alt=''
       />
       <p>{comment.description}</p>
-      <p>{comment.musical_rating}</p>
-      <p>{formatDate(comment.created_at)}</p>
+      <Link to={`/comments/${comment.id}`}>See More</Link>
     </li>
   );
 };

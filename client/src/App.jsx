@@ -3,6 +3,7 @@ import HomePage from './components/HomePage/HomePage';
 import Header from './components/Header/Header';
 import CommentsWrapper from './components/CommentsWrapper/CommentsWrapper';
 import './App.css';
+import CommentById from './components/CommentById/CommentById';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/comments' element={<CommentsWrapper />} />
+        <Route path='/comments/:id' element={<CommentById />} />
       </Routes>
     </>
   );
