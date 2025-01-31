@@ -33,6 +33,14 @@ const PostForm = ({ setComments }) => {
     try {
       if (response.ok) {
         setComments((prev) => [data, ...prev]);
+        setFormData({
+          username: '',
+          band_name: '',
+          src: '',
+          description: '',
+          musical_rating: 1,
+        });
+
         navigate('/comments');
       }
     } catch (error) {
