@@ -19,7 +19,7 @@
 
 ### Extras
 
-- Have a message to say comment deleted before navigating back to `/comments` page.
-- Have a message to say post successful before navigating to `/comments` page.
+- Have a message to say comment deleted before navigating back to `/comments` page (`react-toastify`), and same if unsuccessful.
+- Have a message to say post successful before navigating to `/comments` page (`react-toastify`), and same if unsuccessfu.
 - Use `react-top-loader` or something similar to get the progress bar at the top like Reddit when the page transitions to a new page.
 - Maybe put all the `fetch` functions into a seperate file to de-clutter the components.
