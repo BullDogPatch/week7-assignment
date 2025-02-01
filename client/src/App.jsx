@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import CommentsWrapper from './components/CommentsWrapper/CommentsWrapper';
 import CommentById from './components/CommentById/CommentById';
 import PostForm from './components/PostForm/PostForm';
+import Users from './components/Users/Users';
 import './App.css';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           path='/comments/:id'
           element={<CommentById setComments={setComments} />}
         />
+        <Route path='/users' element={<Users />} />
       </Routes>
     </>
   );
