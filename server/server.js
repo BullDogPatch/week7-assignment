@@ -34,6 +34,20 @@ app.get('/comments', async (req, res) => {
   }
 });
 
+app.get('/users', async (req, res) => {
+  try {
+    const { rows } = await db.query('SELECT DISTINCT username FROM comments');
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: 'No users found' });
+    }
+    res.json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server is down :(' });
+  }
+});
+
 app.get('/comments/:id', async (req, res) => {
   const { id } = req.params;
   try {
