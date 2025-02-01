@@ -9,15 +9,6 @@ const Comment = ({ comment }) => {
       <li className='comment'>
         <p className='username'>{comment.username}</p>
         <img src={comment.src} alt='' />
-        {/* <span className='likes'>
-          <button className='like-button'>
-            <FaArrowUp />
-          </button>
-          <span className='like-count'>{comment.likes}</span>
-          <button className='like-button'>
-            <FaArrowDown />
-          </button>
-        </span> */}
         <p>Upvotes: {comment.likes}</p>
       </li>
     </Link>

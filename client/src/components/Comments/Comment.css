@@ -4,8 +4,8 @@
   margin: 0.938rem 0;
   padding: 0.938rem;
   width: 100%;
-  /* height: 400px; */
   overflow: hidden;
+  clear: both;
 }
 
 .comment:hover {

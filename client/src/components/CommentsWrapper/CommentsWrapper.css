@@ -2,4 +2,12 @@
   list-style-type: none;
   width: 90%;
   margin: 1.25rem auto;
+  padding: 1px 0;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .comments-wrapper {
+    width: 50%;
+  }
 }
