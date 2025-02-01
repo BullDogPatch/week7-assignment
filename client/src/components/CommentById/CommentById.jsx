@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import './CommentById.css';
 
 const formatDate = (date) => {
   const parsedDate = new Date(date);
@@ -46,23 +47,25 @@ const CommentById = ({ setComments }) => {
   };
 
   return (
-    <div>
-      <p>{commentById.username}</p>
-      <p>{commentById.band_name}</p>
-      <img
-        style={{ width: '200px', height: '200px' }}
-        src={
-          commentById.src ||
-          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'
-        }
-        alt=''
-      />
-      <p>{commentById.musical_rating}</p>
-      <p>{formatDate(commentById.created_at)}</p>
+    <div className='comment-page'>
+      <div className='comment-by-id'>
+        <p>{commentById.username}</p>
+        <p>{commentById.band_name}</p>
+        <img
+          style={{ width: '200px', height: '200px' }}
+          src={
+            commentById.src ||
+            'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'
+          }
+          alt=''
+        />
+        <p>{commentById.musical_rating}</p>
+        <p>{formatDate(commentById.created_at)}</p>
 
-      <button onClick={() => handleDelete(commentById.id)}>
-        Delete comment
-      </button>
+        <button onClick={() => handleDelete(commentById.id)}>
+          Delete comment
+        </button>
+      </div>
     </div>
   );
 };

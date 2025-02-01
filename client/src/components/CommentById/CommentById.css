@@ -1,0 +1,46 @@
+.comment-page {
+  margin-top: 60px;
+}
+
+.comment-by-id {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(19, 16, 16);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.comment-by-id img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.comment-by-id p {
+  padding: 8px;
+  font-size: 1.1rem;
+}
+
+.comment-by-id button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.comment-by-id button:hover {
+  background-color: darkred;
+}
