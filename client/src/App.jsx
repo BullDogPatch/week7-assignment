@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar';
 import { ToastContainer, toast } from 'react-toastify';
 import HomePage from './components/HomePage/HomePage';
 import Header from './components/Header/Header';
@@ -9,8 +10,11 @@ import PostForm from './components/PostForm/PostForm';
 import Users from './components/Users/Users';
 import './App.css';
 
+// react-top-loader video (https://www.youtube.com/watch?v=cDzfTkS4eoc)
 function App() {
   const [comments, setComments] = useState([]);
+  const [progress, setProgress] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     const getComments = async () => {
@@ -21,8 +25,21 @@ function App() {
     getComments();
   }, []);
 
+  useEffect(() => {
+    setProgress(40);
+    setTimeout(() => {
+      setProgress(100);
+    }, 50);
+  }, [location]);
+
   return (
     <>
+      <LoadingBar
+        color='red'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+        height={5}
+      />
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
