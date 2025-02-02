@@ -11,6 +11,8 @@ const formatDate = (date) => {
     : new Intl.DateTimeFormat('en-GB').format(parsedDate);
 };
 
+const BASE_URL = 'https://week7-assignment-jw9m.onrender.com';
+
 const CommentById = ({ setComments }) => {
   const [commentById, setCommentById] = useState({});
   const { id } = useParams();
@@ -42,7 +44,7 @@ const CommentById = ({ setComments }) => {
 
   const handleLikeUpdate = async () => {
     setCommentById((prev) => ({ ...prev, likes: prev.likes + 1 }));
-    const response = await fetch(`http://localhost:8080/comments/${id}/likes`, {
+    const response = await fetch(`${BASE_URL}/comments/${id}/likes`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
     });
