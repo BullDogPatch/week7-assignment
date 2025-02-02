@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import HomePage from './components/HomePage/HomePage';
 import Header from './components/Header/Header';
 import CommentsWrapper from './components/CommentsWrapper/CommentsWrapper';
@@ -39,6 +40,7 @@ function App() {
         />
         <Route path='/users' element={<Users />} />
       </Routes>
+      <ToastContainer autoClose={1500} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './CommentById.css';
+import { toast } from 'react-toastify';
 
 const formatDate = (date) => {
   const parsedDate = new Date(date);
@@ -37,6 +38,7 @@ const CommentById = ({ setComments }) => {
 
       if (response.ok) {
         setComments((prev) => prev.filter((comment) => comment.id !== id));
+        toast.success('Comment deleted successfully! 🎉');
         navigate('/comments');
       } else {
         console.log('Failed to delete comment');
