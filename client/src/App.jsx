@@ -13,7 +13,6 @@ import './App.css';
 import { fetchComments } from './utils/api';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 
-// react-top-loader video (https://www.youtube.com/watch?v=cDzfTkS4eoc)
 function App() {
   const [comments, setComments] = useState([]);
   const [progress, setProgress] = useState(0);
