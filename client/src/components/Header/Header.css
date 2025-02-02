@@ -5,6 +5,7 @@
   align-items: center;
   padding: 1rem 1rem;
   margin-bottom: 30px;
+  border-bottom: 2px solid red;
 }
 
 .header h1 {

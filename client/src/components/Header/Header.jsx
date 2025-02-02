@@ -9,6 +9,7 @@ const Header = () => {
         <NavLink
           to='/comments'
           style={({ isActive }) => ({ color: isActive ? 'green' : 'blue' })}
+          end
         >
           Posts
         </NavLink>
