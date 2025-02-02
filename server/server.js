@@ -16,12 +16,6 @@ const db = new pg.Pool({
 
 const app = express();
 
-app.use(express.static('build'));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-});
-
 app.use(cors());
 app.use(express.json());
 
