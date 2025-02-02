@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './CommentById.css';
 import { toast } from 'react-toastify';
+import { deleteCommentByid, fetchCommentByid } from '../../utils/api';
 
 const formatDate = (date) => {
   const parsedDate = new Date(date);
@@ -16,35 +17,22 @@ const CommentById = ({ setComments }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getCommentById = async () => {
-      const response = await fetch(`http://localhost:8080/comments/${id}`);
-      const data = await response.json();
-      setCommentById(data);
-    };
-    getCommentById();
+    (async () => {
+      const comment = await fetchCommentByid(id);
+      if (comment) {
+        setCommentById(comment);
+      }
+    })();
   }, [id]);
 
   const handleDelete = async (id) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8080/delete-comment/${id}`,
-        {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      if (response.ok) {
-        setComments((prev) => prev.filter((comment) => comment.id !== id));
-        toast.success('Comment deleted successfully! 🎉');
-        navigate('/comments');
-      } else {
-        console.log('Failed to delete comment');
-      }
-    } catch (error) {
-      console.error('Error during delete request:', error);
+    const success = await deleteCommentByid(id);
+    if (success) {
+      setComments((prev) => prev.filter((comment) => comment.id !== id));
+      toast.success('Comment deleted successfully! 🎉');
+      navigate('/comments');
+    } else {
+      toast.error('Failed to delete comment');
     }
   };
 
