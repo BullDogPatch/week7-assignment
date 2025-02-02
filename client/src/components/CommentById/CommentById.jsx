@@ -37,12 +37,14 @@ const CommentById = ({ setComments }) => {
   };
 
   const handleLikeUpdate = async () => {
+    setCommentById((prev) => ({ ...prev, likes: prev.likes + 1 }));
     const response = await fetch(`http://localhost:8080/comments/${id}/likes`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
     });
-
-    setCommentById((prev) => ({ ...prev, likes: commentById.likes + 1 }));
+    if (!response.ok) {
+      setCommentById((prev) => ({ ...prev, likes: prev.likes - 1 }));
+    }
   };
 
   return (
