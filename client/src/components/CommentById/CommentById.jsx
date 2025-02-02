@@ -36,6 +36,17 @@ const CommentById = ({ setComments }) => {
     }
   };
 
+  const handleLikeUpdate = async () => {
+    setCommentById((prev) => ({ ...prev, likes: prev.likes + 1 }));
+    const response = await fetch(`http://localhost:8080/comments/${id}/likes`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (!response.ok) {
+      setCommentById((prev) => ({ ...prev, likes: prev.likes - 1 }));
+    }
+  };
+
   return (
     <div className='comment-page'>
       <div className='comment-by-id'>
@@ -51,7 +62,8 @@ const CommentById = ({ setComments }) => {
         />
         <p>{commentById.musical_rating}</p>
         <p>{formatDate(commentById.created_at)}</p>
-
+        <p>{commentById.likes}</p>
+        <button onClick={handleLikeUpdate}>Upvote</button>
         <button onClick={() => handleDelete(commentById.id)}>
           Delete comment
         </button>

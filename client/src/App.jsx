@@ -10,6 +10,7 @@ import PostForm from './components/PostForm/PostForm';
 import Users from './components/Users/Users';
 import Footer from './components/Footer/Footer';
 import './App.css';
+import { fetchComments } from './utils/api';
 
 // react-top-loader video (https://www.youtube.com/watch?v=cDzfTkS4eoc)
 function App() {
@@ -18,12 +19,10 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    const getComments = async () => {
-      const response = await fetch('http://localhost:8080/comments');
-      const data = await response.json();
-      setComments(data);
-    };
-    getComments();
+    (async () => {
+      const data = await fetchComments();
+      if (data) setComments(data);
+    })();
   }, []);
 
   useEffect(() => {
@@ -46,7 +45,9 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route
           path='/comments'
-          element={<CommentsWrapper comments={comments} />}
+          element={
+            <CommentsWrapper comments={comments} setComments={setComments} />
+          }
         />
         <Route
           path='/post-comment'
