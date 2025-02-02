@@ -36,3 +36,5 @@ One thing that annoyed me is that when the site is deployed using Render, you ca
 thinking now I know I should have implemented a back button.
 
 Look forward to your feedback.
+
+Also the Logo(`<h1>BandReview</h1>`) is wrapped in a `Link` component so it takes you back to home page, I also used `Navlink` for active styles when on the current path.
