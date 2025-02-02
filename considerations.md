@@ -25,3 +25,7 @@
 - Maybe put all the `fetch` functions into a seperate file to de-clutter the components. ✅
 - Have (PUT) `/likes` route
 - Update the users likes.
+
+### An extra I would like.
+
+- Use Tanstack Query to remove make my code look way neater. Have not used Tanstack Query for a couple year.
