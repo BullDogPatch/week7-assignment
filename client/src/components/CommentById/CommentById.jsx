@@ -50,19 +50,22 @@ const CommentById = ({ setComments }) => {
   return (
     <div className='comment-page'>
       <div className='comment-by-id'>
-        <p>{commentById.username}</p>
-        <p>{commentById.band_name}</p>
+        <p>{commentById.username || 'Loading username...'}</p>
+        <p>{commentById.band_name || 'Loading band name...'}</p>
         <img
-          style={{ width: '200px', height: '200px' }}
           src={
             commentById.src ||
             'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'
           }
-          alt={`picture of the band ${commentById.band_name}`}
+          alt={`picture of the band ${commentById.band_name || 'band'}`}
         />
-        <p>{commentById.musical_rating}</p>
-        <p>{formatDate(commentById.created_at)}</p>
-        <p>{commentById.likes}</p>
+        <p>{commentById.musical_rating ?? 'Loading rating...'}</p>
+        <p>
+          {commentById.created_at
+            ? formatDate(commentById.created_at)
+            : 'Loading date...'}
+        </p>
+        <p>{commentById.likes ?? 0}</p>
         <button onClick={handleLikeUpdate}>Upvote</button>
         <button onClick={() => handleDelete(commentById.id)}>
           Delete comment
