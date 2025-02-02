@@ -6,12 +6,16 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      const data = await fetchUsers();
-      if (users) {
+    const fetchData = async () => {
+      try {
+        const data = await fetchUsers();
         setUsers(data);
+      } catch (error) {
+        console.log(error);
       }
-    })();
+    };
+
+    fetchData();
   }, []);
 
   return (

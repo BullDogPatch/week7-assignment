@@ -1,14 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Comment from '../Comments/Comment';
 import './CommentsWrapper.css';
 import { fetchComments } from '../../utils/api';
 
-const CommentsWrapper = ({ comments, setComments }) => {
+const CommentsWrapper = () => {
+  const [comments, setComments] = useState([]);
+
   useEffect(() => {
     (async () => {
-      const data = await fetchComments();
-      if (data) {
+      try {
+        const data = await fetchComments();
         setComments(data);
+      } catch (error) {
+        console.log(error);
       }
     })();
   }, []);

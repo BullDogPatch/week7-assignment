@@ -20,10 +20,16 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    (async () => {
-      const data = await fetchComments();
-      if (data) setComments(data);
-    })();
+    const fetchData = async () => {
+      try {
+        const data = await fetchComments();
+        setComments(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {

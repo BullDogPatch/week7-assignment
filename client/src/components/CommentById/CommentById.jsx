@@ -17,12 +17,16 @@ const CommentById = ({ setComments }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    (async () => {
-      const comment = await fetchCommentByid(id);
-      if (comment) {
-        setCommentById(comment);
+    const fetchData = async () => {
+      try {
+        const data = await fetchCommentByid(id);
+        setCommentById(data);
+      } catch (error) {
+        console.log(error);
       }
-    })();
+    };
+
+    fetchData();
   }, [id]);
 
   const handleDelete = async (id) => {

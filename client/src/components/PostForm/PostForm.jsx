@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './PostForm.css';
+import { postComment } from '../../utils/api';
 
 const BASE_URL = 'https://week7-assignment-jw9m.onrender.com';
 const PostForm = ({ setComments }) => {
@@ -26,17 +27,7 @@ const PostForm = ({ setComments }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${BASE_URL}/post-comment`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to add comment ☹️');
-      }
-
-      const data = await response.json();
+      const data = await postComment(formData);
 
       setComments((prev) => [data, ...prev]);
       setFormData({
