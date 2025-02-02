@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './PostForm.css';
 
+const BASE_URL = 'https://week7-assignment-jw9m.onrender.com';
 const PostForm = ({ setComments }) => {
   const [formData, setFormData] = useState({
     username: '',
@@ -25,7 +26,7 @@ const PostForm = ({ setComments }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/post-comment', {
+      const response = await fetch(`${BASE_URL}/post-comment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -1,6 +1,8 @@
+const BASE_URL = 'https://week7-assignment-jw9m.onrender.com';
+
 export const fetchComments = async () => {
   try {
-    const response = await fetch('http://localhost:8080/comments');
+    const response = await fetch(`${BASE_URL}/comments`);
     if (!response.ok) {
       throw new Error('failed to fetch comment');
     }
@@ -12,7 +14,7 @@ export const fetchComments = async () => {
 
 export const fetchCommentByid = async (id) => {
   try {
-    const response = await fetch(`http://localhost:8080/comments/${id}`);
+    const response = await fetch(`${BASE_URL}/${id}`);
     if (!response.ok) {
       throw new Error('failed to fetch comment');
     }
@@ -24,7 +26,7 @@ export const fetchCommentByid = async (id) => {
 
 export const deleteCommentByid = async (id) => {
   try {
-    const response = await fetch(`http://localhost:8080/delete-comment/${id}`, {
+    const response = await fetch(`${BASE_URL}/delete-comment/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +45,7 @@ export const deleteCommentByid = async (id) => {
 
 export const fetchUsers = async () => {
   try {
-    const response = await fetch('http://localhost:8080/users');
+    const response = await fetch(`${BASE_URL}/users`);
     if (!response.ok) {
       throw new Error('falied to fetch users');
     }

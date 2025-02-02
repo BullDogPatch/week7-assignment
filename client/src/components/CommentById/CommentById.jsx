@@ -62,11 +62,8 @@ const CommentById = ({ setComments }) => {
         />
         <p>{commentById.musical_rating}</p>
         <p>{formatDate(commentById.created_at)}</p>
-        <div>
-          <button onClick={handleLikeUpdate}>Upvote</button>
-          <p>{commentById.likes}</p>
-          <button>Downvote</button>
-        </div>
+        <p>{commentById.likes}</p>
+        <button onClick={handleLikeUpdate}>Upvote</button>
         <button onClick={() => handleDelete(commentById.id)}>
           Delete comment
         </button>
