@@ -1,3 +1,15 @@
+export const fetchComments = async () => {
+  try {
+    const response = await fetch('http://localhost:8080/comments');
+    if (!response.ok) {
+      throw new Error('failed to fetch comment');
+    }
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const fetchCommentByid = async (id) => {
   try {
     const response = await fetch(`http://localhost:8080/comments/${id}`);
@@ -6,7 +18,7 @@ export const fetchCommentByid = async (id) => {
     }
     return await response.json();
   } catch (error) {
-    console.log(erro);
+    console.log(error);
   }
 };
 

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
-
 import './Comment.css';
+import { useEffect } from 'react';
 
 const Comment = ({ comment }) => {
   return (

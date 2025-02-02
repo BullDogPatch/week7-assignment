@@ -90,5 +90,25 @@ app.delete('/delete-comment/:id', async (req, res) => {
   }
 });
 
+app.patch('/comments/:id/likes', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = await db.query(
+      'UPDATE comments SET likes = likes + 1 WHERE id = $1 RETURNING likes;',
+      [id]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: 'Comment not found' });
+    }
+
+    res.json({ likes: result.rows[0].likes });
+  } catch (error) {
+    console.error('Error updating likes:', error);
+    res.status(500).json({ error: 'Failed to update likes' });
+  }
+});
+
 const PORT = 8080;
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
