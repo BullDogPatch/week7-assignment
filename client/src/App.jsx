@@ -8,6 +8,7 @@ import CommentsWrapper from './components/CommentsWrapper/CommentsWrapper';
 import CommentById from './components/CommentById/CommentById';
 import PostForm from './components/PostForm/PostForm';
 import Users from './components/Users/Users';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 // react-top-loader video (https://www.youtube.com/watch?v=cDzfTkS4eoc)
@@ -26,10 +27,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setProgress(40);
+    setProgress(50);
     setTimeout(() => {
       setProgress(100);
-    }, 50);
+    }, 0);
   }, [location]);
 
   return (
@@ -57,6 +58,7 @@ function App() {
         />
         <Route path='/users' element={<Users />} />
       </Routes>
+      <Footer />
       <ToastContainer autoClose={1500} />
     </>
   );
