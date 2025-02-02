@@ -5,7 +5,7 @@
 - Have (GET) `/comments/:id` route ✅
 - Have (POST) `/post-comment` route ✅
 - Have (DELETE) `/delete-comment/:id` route ✅
-- Have (GET) `/users` route
+- Have (GET) `/users` route ✅
 - Have (PUT) `/likes` route
 
 ### Front End
@@ -16,7 +16,7 @@
 - Display a form to post a comment on `/post-comment` page and then navigate to `/comments` page on success. ✅
 - Delete comment from the comments id page. ✅
 - Style everything the best I can.
-- Display a users page on `/users`, even though I dont have 2 tables I will query the user from supabase and add some fake data when render the users.
+- Display a users page on `/users`, even though I dont have 2 tables I will query the user from supabase and add some fake data when render the users.✅
 - Update the users likes.
 
 ### Extras
