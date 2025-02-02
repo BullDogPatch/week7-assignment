@@ -11,6 +11,7 @@ import Users from './components/Users/Users';
 import Footer from './components/Footer/Footer';
 import './App.css';
 import { fetchComments } from './utils/api';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 // react-top-loader video (https://www.youtube.com/watch?v=cDzfTkS4eoc)
 function App() {
@@ -58,6 +59,7 @@ function App() {
           element={<CommentById setComments={setComments} />}
         />
         <Route path='/users' element={<Users />} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
       <ToastContainer autoClose={1500} />

@@ -6,7 +6,8 @@ export const fetchComments = async () => {
     if (!response.ok) {
       throw new Error('failed to fetch comment');
     }
-    return await response.json();
+    const data = await response.json();
+    return data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   } catch (error) {
     console.log(error);
   }
@@ -14,7 +15,7 @@ export const fetchComments = async () => {
 
 export const fetchCommentByid = async (id) => {
   try {
-    const response = await fetch(`${BASE_URL}/${id}`);
+    const response = await fetch(`${BASE_URL}/comments/${id}`);
     if (!response.ok) {
       throw new Error('failed to fetch comment');
     }
