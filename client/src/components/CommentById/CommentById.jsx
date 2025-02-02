@@ -59,7 +59,7 @@ const CommentById = ({ setComments }) => {
             commentById.src ||
             'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'
           }
-          alt=''
+          alt={`picture of the band ${commentById.band_name}`}
         />
         <p>{commentById.musical_rating}</p>
         <p>{formatDate(commentById.created_at)}</p>
