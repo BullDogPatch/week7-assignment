@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 2.5rem 0.625rem; */
   padding: 1rem 1rem;
   margin-bottom: 30px;
 }
@@ -11,6 +10,10 @@
 .header h1 {
   font-size: 1.563rem;
   padding: 1.5rem 0.625rem;
+}
+
+.header .links a {
+  padding: 20px;
 }
 
 @media (min-width: 450px) {
