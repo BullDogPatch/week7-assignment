@@ -16,7 +16,7 @@
   padding: 20px;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 500px) {
   .header {
     padding: 1rem 1rem;
   }
