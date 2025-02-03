@@ -65,6 +65,7 @@ const CommentById = ({ setComments }) => {
           }
           alt={`picture of the band ${commentById.band_name || 'band'}`}
         />
+        <p>{commentById.description}</p>
         <p>{'⭐'.repeat(commentById.musical_rating) ?? 'Loading rating...'}</p>
         <p>
           {commentById.created_at
