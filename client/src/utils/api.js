@@ -1,4 +1,4 @@
-const BASE_URL = 'https://week7-assignment-jw9m.onrender.com';
+const BASE_URL = 'https://week7-assignment-a03w.onrender.com';
 
 export const fetchComments = async () => {
   const response = await fetch(`${BASE_URL}/comments`);
